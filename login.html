@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #eef2f3;
+            background-image: url("images/Tech.jpeg");
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .btn-login {
+            background-color: #1a1a2e;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .btn-login:hover {
+            background-color: #0f3460;
+        }
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+        <form id="login-form">
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="reg-email" required pattern="[a-zA-Z0-9._%+-]+@srkrec\.ac\.in" title="Please enter a valid SRKREC email (@srkrec.ac.in)">
+                <span id="email-error" class="error-message">Invalid SRKREC email format</span>
+            </div>
+            <div class="mb-3 password-container">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁</span>
+            </div>
+            <button type="submit" class="btn btn-login w-100">Login</button>
+        </form>
+        <a href="register.html" class="register-link">Create an Account</a>
+    </div>
+
+    <script>
+        function togglePassword() {
+            let passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let email = document.getElementById("reg-email").value;
+            let password = document.getElementById("password").value;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@srkrec\.ac\.in$/;
+            let emailError = document.getElementById("email-error");
+
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+                return;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // Simulated authentication (Replace with real backend authentication)
+            let mockUsers = [
+                { email: "student@srkrec.ac.in", password: "password123" },
+                { email: "admin@srkrec.ac.in", password: "admin123" }
+            ];
+
+            let user = mockUsers.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                localStorage.setItem("loggedInUser", email);
+                window.location.href = "index.html"; // Redirect to dashboard
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

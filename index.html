@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Center Innovations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="register.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f3;
+        }
+        .navbar {
+            background-color: #1a1a2e !important;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #f8f9fa !important;
+        }
+        .navbar-nav .nav-link {
+            color: #f8f9fa !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00 !important;
+        }
+        .carousel-item img {
+            height: 550px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .btn-learn {
+            background-color: #ffcc00;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-learn:hover {
+            background-color: #e6b800;
+        }
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        .submit-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        body { transition: background 0.3s, color 0.3s; }
+
+        .dark-mode { background-color: #121212; color: white; }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .dropdown-menu {
+            background-color: white;
+        }
+        .dark-mode .dropdown-menu {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode .dropdown-item {
+            color: white;
+        }
+        .dark-mode .btn-secondary {
+            background-color: #444;
+            color: white;
+        }
+        .headline {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .ticker {
+    width: 100%;
+    overflow: hidden;
+    background: black;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 10s linear infinite;
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .icon-img {
+    margin-right: 8px;  /* Adds space between icon & text */
+    border-radius: 50%; /* Makes the image circular (optional) */
+    object-fit: cover;  /* Ensures it looks sharp */
+}
+.card
+{
+    max-width: 100%;  /* Makes sure the image is responsive */
+    width: 400px; /* Adjust width as needed */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Prevents distortion */
+    border-radius: 10px; 
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/tech logo.jpg" alt="Tech Center Icon" width="30" height="30" class="icon-img">
+                Tech Hub
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inventions">Inventions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#submit">Submit Idea</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/profile icon.jpg" class="profile-icon" id="profilePic" alt="Profile">
+                        <span id="username" class="ms-2">Guest</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#" id="toggleTheme">Switch mode</a></li>
+                        <li><a class="dropdown-item" href="#" id="logout">Logout</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images\circuit.jpg" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Innovative Technologies</h5>
+                    <p>Discover groundbreaking innovations happening at our tech center.</p>
+                    <a href="#inventions" class="btn-learn">Learn More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images\advanced techno.jpg" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Advanced Research</h5>
+                    <p>Our students and faculty are constantly pushing the boundaries of science.</p>
+                    <a href="#inventions" class="btn-learn">Explore Now</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images\AI & Robotics.jpg" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Robotics & AI</h5>
+                    <p>See how artificial intelligence and robotics are shaping the future.</p>
+                    <a href="#inventions" class="btn-learn">Get Inspired</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section id="inventions" class="py-5">
+        <div class="ticker">
+            <div class="ticker-content">
+              <P>TODAY EVENTS : SIGMA 2K25 </P>
+            </div>
+            <div class="container">
+                <h2 class="text-center mb-4">Innovations at Our Tech Center</h2>
+                <class class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=NurseCallingSystem">
+                                <img src="images/nurse calling system.jpg" class="card-img-top" alt="Nurse Calling System">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=NurseCallingSystem">Nurse Calling System</a></h5>
+                                <p class="card-text">An advanced patient assistance solution designed to enhance hospital efficiency and patient care.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=IOTServiceRobot">
+                                <img src="images/iot based robots 2.jpg" class="card-img-top" alt="IoT Based Service Robot">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=IOTServiceRobot">IoT Based Service Robot</a></h5>
+                                <p class="card-text">An intelligent, autonomous robot designed to enhance efficiency in various service industries.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=LaserEngravingMachine">
+                                <img src="images/laser engraving .jpg" class="card-img-top" alt="Laser Engraving Machine">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=LaserEngravingMachine">Laser Engraving & Cutting Machine</a></h5>
+                                <p class="card-text">A high-precision machine that uses laser technology for efficient engraving and cutting on various materials.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=CottonGinningMachine">
+                                <img src="images/cotton new.jpg" class="card-img-top" alt="Portable Cotton Ginning Machine">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=CottonGinningMachine">Portable Cotton Ginning Machine</a></h5>
+                                <p class="card-text">A compact, high-efficiency machine for seamless cotton ginning on the go!</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=SentinelStrike">
+                                <img src="images/gun shooter.jpg" class="card-img-top" alt="Sentinel Strike">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=SentinelStrike">Sentinel Strike</a></h5>
+                                <p class="card-text">AI-Powered Threat Detection & Response System.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=MediBotExpress">
+                                <img src="images/medibot.jpg" class="card-img-top" alt="MediBot Express">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=MediBotExpress">MediBot Express</a></h5>
+                                <p class="card-text">Autonomous tablet delivery van ensuring fast, secure, and contactless medication transport.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=SmartSwayCradle">
+                                <img src="images/swaagy machine.jpg" class="card-img-top" alt="Smart Sway Cradle">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=SmartSwayCradle">Smart Sway Cradle</a></h5>
+                                <p class="card-text">An automatic rocking cradle designed to comfort babies with gentle, rhythmic motion.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=TomatoHarvestingRobot">
+                                <img src="images/tomato harvesting machine.jpg" class="card-img-top" alt="Automatic Tomato Harvesting Robot">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=TomatoHarvestingRobot">Automatic Tomato Harvesting Robot</a></h5>
+                                <p class="card-text">A smart, automated machine that efficiently harvests tomatoes with precision and minimal human effort.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+    
+            
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=SmartWheelchair">  <!-- Corrected ID -->
+                                <img src="images/smart wheel new.jpg" class="card-img-top" alt="Smart Wheelchair">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=SmartWheelchair">Smart Wheelchair</a></h5>
+                                <p class="card-text">An intelligent wheelchair with automated navigation and assistive features for enhanced mobility and independence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=PCBPrototypingMachine">  <!-- Corrected ID -->
+                                <img src="images/pcb new.jpg" class="card-img-top" alt="PCB Prototyping Machine">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=PCBPrototypingMachine">PCB Prototyping Machine</a></h5>
+                                <p class="card-text">A high-precision machine for rapid and efficient PCB prototyping, enabling quick circuit design testing and production.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=SmartRestrooms">  <!-- Corrected ID -->
+                                <img src="images/smart to new.jpg" class="card-img-top" alt="Smart Restrooms">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=SmartRestrooms">Smart Restrooms</a></h5>
+                                <p class="card-text">A high-tech, self-cleaning, and water-efficient system designed for maximum hygiene and convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="invention.html?id=DPrinter">  <!-- Corrected ID -->
+                                <img src="images/3d printer new.jpg" class="card-img-top" alt="3D Printer">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="invention.html?id=DPrinter">3D Printer</a></h5>
+                                <p class="card-text">A cutting-edge machine that transforms digital designs into physical objects by layering materials with precision and efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </class>
+        </div>
+    </section>
+    
+    <section id="submit" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Submit Your Idea</h2>
+            <div class="submit-section">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Year</label>
+                        <input type="text" class="form-control" placeholder="Enter your year">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Branch</label>
+                        <input type="text" class="form-control" placeholder="Enter your branch">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Your Idea</label>
+                        <textarea class="form-control" rows="4" placeholder="Describe your idea..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <section id="contact" class="container mt-5">
+        <h2 class="text-center">contact</h2>
+        <p>Welcome to TECH CENTER,The best way to predict the future is to invent it.</p>
+        <h3>Contact Information</h3>
+        <p>Email: support@techecenter.in</p>
+        <p>Email: techecenter@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+    </section>
+    <h6 class="text-center">Copyright © 2025 Tech Inc. | Legal & Regulatory | Accessibility</h6>
+    <div class="ticker"> <p>annual day celebrations are touching sky in SRKR college</p> 
+      <div class="ticker-content">
+      </div>
+    </div>
+
+    <sc src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let isDarkMode = localStorage.getItem("darkMode") === "enabled";
+    
+                // Apply dark mode if it was enabled before
+                if (isDarkMode) {
+                    document.body.classList.add("dark-mode");
+                }
+    
+                document.getElementById("toggleTheme").addEventListener("click", function () {
+                    document.body.classList.toggle("dark-mode");
+    
+                    // Save preference to localStorage
+                    if (document.body.classList.contains("dark-mode")) {
+                        localStorage.setItem("darkMode", "enabled");
+                    } else {
+                        localStorage.setItem("darkMode", "disabled");
+                    }
+                });
+                let storedUsername = localStorage.getItem("username") || "Guest";
+        let usernameDisplay = document.getElementById("username");
+
+        if (usernameDisplay) {
+            usernameDisplay.textContent = storedUsername;
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
